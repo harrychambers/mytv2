@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MyTV</title>
+        <!-- local css file in public directory -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+        <main>
+            <h1> <%= singledata.showname %> </h1>
+            <img src="<%= singledata.imgpath %>" width="210px">
+            <h4>Description</h4>
+            <p><%= singledata.descript %></p>
+            <h4>Actors</h4>
+            <% if (Array.isArray(castdata) && castdata.length > 0) { %>
+                <% castdata.forEach(actorName => { %>
+                    <div>
+                        <p><%= actorName %></p>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>None</p>
+            <% } %>
+            <br>
+            <p>posted by: <%= singledata.user_id %></p>
+      
+    </main>
+    </body>
+</html>
